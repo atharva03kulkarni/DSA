@@ -1,0 +1,27 @@
+public class Main
+{
+    static long gcd(long a, long b) {				//used recursion to reduce time complexity
+        if(a%b != 0) {
+            return gcd(b, a%b);
+        } else {
+            return b;
+        }
+    }
+    
+    public static long getSmallestDivNum(int n) {
+        // code here
+        
+        long ans = 1;
+        
+        for(long i=1; i<=n; ++i) {
+            ans = (ans * i) / gcd(ans, i);			//divided by hcf bcoz if ans is divisible by hcf of numbers then it will obviously be divisble by indvidual numbers
+        }
+        
+        return ans;
+        
+    }
+    
+	public static void main(String[] args) {
+		System.out.println(getSmallestDivNum(3));
+	}
+}
