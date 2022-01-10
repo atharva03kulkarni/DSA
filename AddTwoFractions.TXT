@@ -1,0 +1,45 @@
+
+public class Main
+{
+    
+    static int findlcm(int a, int b) {
+        
+        int lcm = (a > b) ? a : b;
+        
+        int ans = 0;
+        
+        for(int i=lcm; i<=a*b; i++) {
+            if((i % a == 0) && (i % b == 0)) {
+                lcm = i; 
+            }
+        }
+        return lcm;
+    }
+    
+    static int findgcd(int a, int b) { 
+        if (a == 0) 
+            return b; 
+        return findgcd(b%a, a); 
+    } 
+    
+    static void addFraction(int num1, int den1, int num2, int den2) {
+        // Your code here	
+        if(den1 == den2) {
+            System.out.println(num1+num2+"/"+den1);
+        } else if(den1 != den2) {
+            int lcm = findlcm(den1, den2);
+            
+            int numerator = (num1 * (lcm/den1)) + (num2 * (lcm/den2));
+            
+            int hcf = findgcd(numerator, lcm);
+            
+            System.out.println((numerator/hcf)+"/"+(lcm/hcf));                  // divide by hcf to get lowest version 
+                                                                                // of the fraction
+        }
+    }
+    
+	public static void main(String[] args) {
+	    
+	    addFraction(384, 887, 778, 916);
+	}
+}
