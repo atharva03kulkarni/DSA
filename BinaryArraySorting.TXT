@@ -1,0 +1,33 @@
+import java.util.Arrays;
+
+public class BinaryArraySorting {
+
+	static int[] SortBinaryArray(int arr[], int n) { 
+	    // code here
+		int l=0, r=n-1;
+		
+		while(l <= r) {
+			if(arr[l] == 1 && arr[r] == 0) {
+				arr[l] = 0;
+				arr[r] = 1;
+			} else if(arr[l] == 0) {
+				++l;
+			} else if(arr[r] == 1) {
+				--r;
+			}
+		}
+
+		return arr;
+	} 
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int n=5;
+		int[] arr = {1,0,1,1,0};
+		
+		System.out.println(Arrays.toString(SortBinaryArray(arr, n)));
+		
+	}
+
+}

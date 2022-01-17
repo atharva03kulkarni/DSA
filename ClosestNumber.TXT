@@ -1,0 +1,69 @@
+
+public class ClosestNumber {
+
+	static int closestNumber(int N , int M) {
+        // code here
+        
+        int l=N-1, r=N+1;
+        int lans=0, rans=0;
+        int lcount=0, rcount=0;
+        
+        while(true) {
+        	++lcount;
+            if(l % M == 0) {
+                lans = l;
+                break;
+            } 
+            --l;
+        }
+        
+        while(true) {
+        	++rcount;
+            if(r % M == 0) {
+                rans = r;
+                break;
+            } 
+            ++r;
+        }
+        
+        if(lcount == rcount) {
+            return -Math.max(Math.abs(lans), Math.abs(rans));
+        } else if(lcount < rcount) {
+            return lans;
+        } 
+        
+        return rans;
+        
+    }
+	
+	static int optClosestNumber(int N , int M) {
+		
+		int q, n1, n2;
+		
+		q = N / M;
+		
+		n1 = M * q;
+		
+		if(N * M > 0) {
+			n2 = M * (q + 1);
+		} else {
+			n2 = M * (q - 1);
+		}
+		
+		if(Math.abs(N - n1) < Math.abs(N - n2)) {
+			return n1;
+		}
+		
+		return n2;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int N = -15 , M = 6;
+		
+		System.out.println(optClosestNumber(N,M));
+
+	}
+
+}
