@@ -1,0 +1,44 @@
+
+public class UncommonCharacters {
+	
+	static String UncommonChars(String A, String B) {
+        // code here
+        int len1 = A.length();
+        int len2 = B.length();
+        
+        int[] present = new int[26];
+        for(int i=0; i<26; ++i) {
+        	present[i] = 0;
+        }
+        
+        for(int i=0; i<len1; ++i) {
+        	present[A.charAt(i) - 'a'] = 1;
+        }
+        
+        for(int i=0; i<len2; ++i) {
+        	if(present[B.charAt(i) - 'a'] == 1 || present[B.charAt(i) - 'a'] == -1) {
+        		present[B.charAt(i) - 'a'] = -1;
+        	} else {
+        		present[B.charAt(i) - 'a'] = 2;
+        	}
+        }
+        
+        String res = "";
+        
+        for(int i=0; i<26; ++i) {
+        	if(present[i] == 1 || present[i] == 2) {
+        		res += (char) (i + 'a');
+        	}
+        }
+        return res;
+    }
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String A = "geeksforgeeks";
+		String B = "geeksquiz";
+		System.out.println(UncommonChars(A,B));
+	}
+
+}

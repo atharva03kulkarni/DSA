@@ -1,0 +1,45 @@
+// { Driver Code Starts
+//Initial Template for Java
+
+/*package whatever //do not write package name here */
+
+import java.io.*;
+import java.util.*;
+class GFG {
+	public static void main (String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int t=sc.nextInt();
+		sc.nextLine();
+		while(t-->0)
+		{
+		    String s=sc.nextLine();
+		    
+		    System.out.println(printNumber(s,s.length()));
+		}
+		
+	}
+
+ // } Driver Code Ends
+//User function Template for Java
+
+
+//Function to find matching decimal representation of a string as on the keypad.
+public static String printNumber(String s, int n) 
+{
+    //Your code here
+    char[] ch = s.toCharArray();
+    char[] arr = "22233344455566677778889999".toCharArray();
+    
+    String res = "";
+    
+    for(int i=0; i<n; ++i) {
+        res += arr[ch[i] - 'a'];
+    }
+    
+    return res;
+}
+
+// { Driver Code Starts.
+
+}
+  // } Driver Code Ends
