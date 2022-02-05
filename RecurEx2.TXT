@@ -1,0 +1,28 @@
+
+public class RecurEx2 {
+	
+	static void print(int n) {
+		
+		if(n == 0) return;
+		
+		String[] arr = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+		
+		int temp = n % 10;
+		
+		String ans = "";
+		
+		ans += arr[temp] + " ";
+				
+		print(n/10);
+		
+		System.out.print(ans);
+
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		print(403);
+	}
+
+}
