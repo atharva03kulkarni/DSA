@@ -1,0 +1,18 @@
+
+public class NoOfStepsRecur {
+
+	static int noOfSteps(int n) {
+		
+		if(n < 0) return 0;
+		
+		if(n == 0) return 1;
+		
+		return noOfSteps(n-1) + noOfSteps(n-2) + noOfSteps(n-3);
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("No. of Ways : " + noOfSteps(4));
+	}
+
+}

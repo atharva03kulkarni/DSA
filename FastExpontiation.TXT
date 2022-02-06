@@ -1,0 +1,25 @@
+
+public class RecurEx3 {
+	
+	static int exp(int n) {
+		
+		if(n == 0) return 1;
+		
+		int ans = exp(n/2);
+		
+		if((n&1) == 1) {
+			// n is odd
+			return 2 * ans * ans;
+		} else {
+			// n is even
+			return ans * ans;
+		}
+				
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println(exp(3));
+	}
+
+}

@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+
+public class PowerSetUsingRecur {
+	
+	static void powerSet(int[] arr, ArrayList<Integer> outal, int index) {
+		
+		if(index >= arr.length) {
+			System.out.println(outal);
+			return;
+		}
+		
+		// exclude
+		powerSet(arr, outal, index+1);
+		
+		// include
+		outal.add(arr[index]);		
+		powerSet(arr, outal, index+1);
+		outal.remove(outal.size()-1);
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int[] arr = {1, 2, 3};
+		
+		ArrayList<Integer> outal = new ArrayList<>();
+		
+		powerSet(arr, outal, 0);
+	}
+
+}
