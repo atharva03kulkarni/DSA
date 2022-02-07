@@ -1,0 +1,39 @@
+
+public class PermutationsInAStringRecurBT {
+	
+	static String swap(String str, int index, int i) {
+		
+		char[] ch = str.toCharArray();
+		
+		char temp = ch[index];
+		ch[index] = ch[i];
+		ch[i] = temp;
+			
+		return String.valueOf(ch);
+	}
+	
+	static void getPerm(String str, int index) {
+		if(index >= str.length()) {
+			System.out.println(str);
+			return;
+		}
+		
+		for(int i=index; i<str.length(); ++i) {
+			str = swap(str, index, i);
+			getPerm(str, index+1);
+			
+			// backtrack
+			str = swap(str, index, i);
+		}
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String str = "abc";
+		
+		getPerm(str, 0);
+		
+	}
+
+}

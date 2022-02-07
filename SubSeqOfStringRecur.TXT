@@ -1,0 +1,28 @@
+
+public class SubseqOfStringRecur {
+
+	static void printSubSeq(String str, String res, int index) {
+		
+		if(index >= str.length()) {
+			System.out.println(res);
+			return;
+		}
+		
+		// include
+		printSubSeq(str, res + str.charAt(index), index+1);
+		
+		// exclude
+		printSubSeq(str, res, index+1);
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String str = "abc";
+		String res = "";
+		
+		printSubSeq(str, res, 0);
+		
+	}
+
+}

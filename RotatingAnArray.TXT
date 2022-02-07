@@ -1,0 +1,42 @@
+import java.util.Arrays;
+
+public class RotatingAnArray {
+	
+	static void reverseArray(int[] arr, int start, int end) {
+		int temp;
+		
+		while(start < end) {
+			temp = arr[start];
+			arr[start] = arr[end];
+			arr[end] = temp;
+			
+			++start;
+			--end;
+		}
+	}
+	
+	static void leftRotate(int[] arr, int n, int d) {
+        // code here
+		
+		if(d == 0) return;
+		
+		d = d%n;
+		reverseArray(arr, 0, d-1);
+		reverseArray(arr, d, n-1);
+		reverseArray(arr, 0, n-1);
+		
+		System.out.println(Arrays.toString(arr));
+	
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int N = 4;
+		int Arr[] = {1, 3, 4, 2};
+		int D = 3;
+		
+		leftRotate(Arr, N, D);
+	}
+
+}
