@@ -1,0 +1,36 @@
+import java.util.ArrayList;
+
+public class FindPrimeNumbersInRange {
+	
+	static boolean isPrime(int num) {
+		
+		for(int i=2; i<=Math.sqrt(num); ++i) {
+			if(num % i == 0) return false;
+		}
+		
+		return true;
+	}
+
+	static ArrayList<Integer> primeRange(int M, int N) {
+        // code here
+		ArrayList<Integer> al = new ArrayList<>();
+		
+		for(int i=M; i<=N; ++i) {
+			
+			if(isPrime(i) && i != 1) {
+				al.add(i);
+			}
+			
+		}
+		
+		return al;
+    }
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println(primeRange(2, 10));
+		
+	}
+
+}
