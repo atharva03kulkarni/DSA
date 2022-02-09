@@ -1,0 +1,23 @@
+
+public class PowerOf2 {
+
+	static boolean isPowerofTwo(long n) {
+        // Your code here
+        
+		int count = 0;
+		
+		while(n != 0) {
+			n = n & (n - 1);
+			++count;
+			if(count > 1) return false;
+		}
+		
+		return true;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println(isPowerofTwo(98));
+	}
+
+}
