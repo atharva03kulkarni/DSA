@@ -1,0 +1,64 @@
+
+public class RemoveLeadingZerosFromAnIPAddress {
+	
+	static String removeLeadingZeroes(String S) {
+		
+		String res = "";
+		
+		int len = S.length();
+		
+		if(S.charAt(0) != '0') return S;
+		
+		for(int i=0; i<len; ++i)  {
+			if(S.charAt(i) != '0') {
+				res = S.substring(i, len);
+				break;
+			} else if(i == len-1 && S.charAt(i) == '0'){
+				res = "0";
+			}
+		}
+		return res;
+	}
+	
+	static String newIPAdd(String S) {
+        // your code here
+		
+		String res = "";
+		
+		int len = S.length();
+		int start = 0;
+		
+		for(int i=0; i<len; ++i) {
+			
+			if(S.charAt(i) == '.') {
+				res += removeLeadingZeroes(S.substring(start, i)) + ".";
+				start = i+1;
+			}
+			
+		}
+		
+		
+		for(int i=len-1; i>=0; --i) {
+			if(S.charAt(i) == '.') {
+				res += removeLeadingZeroes(S.substring(i+1, len));
+				break;
+			}
+		}
+		
+		return res;
+    }
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String S = "100.020.003.400";
+		
+		System.out.println(newIPAdd(S));
+		
+		//String str = "010";
+		
+		//System.out.println(removeLeadingZeroes(str));
+		
+	}
+
+}
