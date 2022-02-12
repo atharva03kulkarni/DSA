@@ -1,0 +1,57 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class LeadersInAnArray {
+	
+	static ArrayList<Integer> leaders(int arr[], int n) {
+        // Your code here
+    
+		int max=arr[n-1];
+	       ArrayList<Integer> l=new ArrayList<>();
+	       l.add(arr[n-1]);
+	       for(int i=n-2;i>=0;i--)
+	       {
+	           if(arr[i]>=max)
+	           {
+	               max=arr[i];
+	               l.add(max);
+	           }
+	       }
+
+	 Collections.reverse(l);
+	      return l;
+	   }
+		
+		
+		// TLE
+//		ArrayList<Integer> al = new ArrayList<>();
+//		
+//		for(int i=0; i<n; ++i) {
+//			int curr = arr[i];
+//			
+//			for(int j=i+1; j<n; ++j) {
+//				if(curr < arr[j]) {
+//					break;
+//				}
+//				
+//				if(j == n-1 && curr > arr[j]) {
+//					al.add(curr);
+//				}
+//			}			
+//		}
+//		
+//		al.add(arr[n-1]);
+//		
+//		return al;
+	}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int n = 5;
+		int A[] = {1,2,3,4,0};
+		
+		System.out.println(leaders(A, n));
+	}
+
+}
