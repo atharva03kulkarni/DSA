@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+
+public class SumOfUpperAndLlowerTriangles {
+
+	static ArrayList<Integer> sumTriangles(int matrix[][], int n) {
+	        // code here
+		ArrayList<Integer> al = new ArrayList<>();
+		
+		int usum = 0;
+		int lsum = 0;
+		
+		for(int i=0; i<n; ++i) {
+			for(int j=n-1; j>=i; --j) {
+				usum += matrix[i][j];
+			}
+		}
+		
+		al.add(usum);
+		
+		for(int i=0; i<n; ++i) {
+			for(int j=0; j<=i; ++j) {
+				lsum += matrix[i][j];
+			}
+		}
+		
+		al.add(lsum);
+		
+		return al;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int N = 2; 
+		int mat[][] ={{1, 2},
+		              {3, 4}};
+		
+		System.out.println(sumTriangles(mat, N));
+	}
+
+}
